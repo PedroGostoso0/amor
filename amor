@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para você, meu amor ❤️</title>
+
+  <style>
+    body {
+      background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff758f;
+    }
+
+    .assinatura {
+      margin-top: 40px;
+      font-style: italic;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Oi, Fernanda ❤️</h1>
+
+  <p>
+    Eu fiz esse site porque palavras soltas não são suficientes.  
+    Tu é casa, é calma, é caos bom.  
+    Mesmo quando o mundo pesa, tu é o lugar onde eu descanso.
+  </p>
+
+  <button onclick="document.getElementById('musica').play()">
+    ▶ Tocar nossa música
+  </button>
+
+  <audio id="musica">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="assinatura">
+    — Com amor, Pedro
+  </div>
+
+</body>
+</html>
