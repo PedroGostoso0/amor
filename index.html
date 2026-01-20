@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Declaração de Amor</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Fundo com partículas leves -->
+  <div class="background-hearts" aria-hidden="true"></div>
+
+  <main class="page">
+    <section class="card">
+      <!-- Cabeçalho / Modo noturno -->
+      <header class="card-header">
+        <div>
+          <p class="eyebrow">Para sempre nós</p>
+          <h1 id="titulo" class="title">Pra você, meu amor ❤️</h1>
+          <p id="subtitulo" class="subtitle">Uma pequena lembrança do quanto você é especial.</p>
+        </div>
+        <button id="toggleTema" class="ghost-button" type="button" aria-pressed="false">
+          🌙 Modo noturno
+        </button>
+      </header>
+
+      <!-- Seção de capa -->
+      <section class="section cover">
+        <div class="cover-image">
+          <img id="fotoPrincipal" src="" alt="Foto do casal" />
+        </div>
+        <div class="cover-text">
+          <h2 id="nomeDaPessoa" class="script-title">Oi, meu amor!</h2>
+          <p id="contadorDias" class="counter"></p>
+        </div>
+      </section>
+
+      <!-- Seção de declaração -->
+      <section class="section declaration">
+        <div class="section-title">
+          <h3>Minha declaração</h3>
+          <p class="section-subtitle">Palavras sinceras, do jeitinho que eu sinto.</p>
+        </div>
+
+        <div id="declaracao" class="declaracao-text"></div>
+
+        <div class="buttons-row">
+          <button id="toggleDeclaracao" class="primary-button" type="button">Ler mais</button>
+          <button id="copiarMensagem" class="secondary-button" type="button">Copiar mensagem</button>
+        </div>
+      </section>
+
+      <!-- Seção música -->
+      <section class="section music">
+        <div class="section-title">
+          <h3>Nossa música</h3>
+          <p class="section-subtitle">Uma trilha sonora para o nosso amor.</p>
+        </div>
+
+        <div class="music-player">
+          <button id="botaoMusica" class="primary-button" type="button">▶ Tocar</button>
+          <span id="musicStatus" class="music-status">Clique para ouvir.</span>
+        </div>
+        <div id="musicLinkWrapper" class="music-link hidden">
+          <a id="musicLink" href="#" target="_blank" rel="noopener noreferrer" class="secondary-button">
+            Ouvir no YouTube/Spotify
+          </a>
+          <small class="music-warning">
+            Alguns links não tocam direto no site, mas abrem no app.
+          </small>
+        </div>
+        <audio id="audioPlayer" preload="none"></audio>
+      </section>
+
+      <!-- Seção momentos -->
+      <section class="section moments">
+        <div class="section-title">
+          <h3>Momentos</h3>
+          <p class="section-subtitle">Pequenas lembranças que guardo no coração.</p>
+        </div>
+
+        <div id="momentosContainer" class="moments-grid"></div>
+      </section>
+
+      <!-- Interações fofas -->
+      <section class="section actions">
+        <div class="buttons-row">
+          <button id="enviarBeijo" class="primary-button" type="button">Enviar um beijo 💋</button>
+          <button id="copiarMensagem2" class="ghost-button" type="button">Copiar mensagem</button>
+        </div>
+      </section>
+
+      <!-- Assinatura -->
+      <footer class="signature">
+        <p id="assinatura"></p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- JS principal -->
+  <script src="script.js"></script>
+</body>
+</html>
