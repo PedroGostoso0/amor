@@ -1,0 +1,330 @@
+(cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/style.css b/style.css
+new file mode 100644
+index 0000000000000000000000000000000000000000..1ee0507f4db99ad4e3a0745257048f673d4f1488
+--- /dev/null
++++ b/style.css
+@@ -0,0 +1,320 @@
++:root {
++  color-scheme: light;
++  --bg-start: #ffe9f2;
++  --bg-end: #f5f7ff;
++  --card-bg: rgba(255, 255, 255, 0.9);
++  --text-primary: #2d1a32;
++  --text-secondary: #6b556f;
++  --accent: #ff5c8a;
++  --accent-dark: #f14074;
++  --shadow: 0 24px 60px rgba(165, 72, 123, 0.18);
++  --border: rgba(255, 255, 255, 0.6);
++}
++
++body.dark {
++  color-scheme: dark;
++  --bg-start: #1a1225;
++  --bg-end: #0f0b17;
++  --card-bg: rgba(33, 25, 46, 0.85);
++  --text-primary: #f9eff7;
++  --text-secondary: #cbb8d6;
++  --accent: #ff7aa2;
++  --accent-dark: #ff5c8a;
++  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
++  --border: rgba(255, 255, 255, 0.08);
++}
++
++* {
++  box-sizing: border-box;
++}
++
++body {
++  margin: 0;
++  font-family: 'Poppins', 'Montserrat', sans-serif;
++  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
++  color: var(--text-primary);
++  min-height: 100vh;
++  position: relative;
++}
++
++.background-hearts {
++  position: fixed;
++  inset: 0;
++  background-image:
++    radial-gradient(circle at 20% 20%, rgba(255, 180, 210, 0.18) 0%, transparent 45%),
++    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.35) 0%, transparent 35%),
++    radial-gradient(circle at 70% 80%, rgba(255, 195, 220, 0.15) 0%, transparent 45%),
++    radial-gradient(circle at 15% 75%, rgba(255, 255, 255, 0.3) 0%, transparent 40%);
++  opacity: 0.8;
++  pointer-events: none;
++  z-index: 0;
++}
++
++.page {
++  position: relative;
++  z-index: 1;
++  display: flex;
++  justify-content: center;
++  padding: 32px 16px 60px;
++}
++
++.card {
++  width: min(960px, 100%);
++  background: var(--card-bg);
++  border-radius: 28px;
++  padding: 28px 22px 32px;
++  box-shadow: var(--shadow);
++  border: 1px solid var(--border);
++  backdrop-filter: blur(12px);
++}
++
++.card-header {
++  display: flex;
++  flex-direction: column;
++  gap: 16px;
++  align-items: flex-start;
++}
++
++.eyebrow {
++  font-size: 0.85rem;
++  text-transform: uppercase;
++  letter-spacing: 0.12rem;
++  color: var(--text-secondary);
++  margin: 0 0 4px;
++}
++
++.title {
++  font-family: 'Dancing Script', cursive;
++  font-size: clamp(2.2rem, 4vw, 3.2rem);
++  margin: 0;
++}
++
++.subtitle {
++  color: var(--text-secondary);
++  margin: 8px 0 0;
++}
++
++.section {
++  margin-top: 28px;
++}
++
++.cover {
++  display: grid;
++  gap: 20px;
++}
++
++.cover-image {
++  width: 100%;
++  border-radius: 22px;
++  overflow: hidden;
++  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
++}
++
++.cover-image img {
++  width: 100%;
++  height: 280px;
++  object-fit: cover;
++  display: block;
++}
++
++.cover-text {
++  display: flex;
++  flex-direction: column;
++  gap: 6px;
++}
++
++.script-title {
++  font-family: 'Dancing Script', cursive;
++  font-size: clamp(1.9rem, 4vw, 2.6rem);
++  margin: 0;
++}
++
++.counter {
++  margin: 0;
++  color: var(--text-secondary);
++}
++
++.section-title h3 {
++  margin: 0 0 4px;
++  font-size: 1.2rem;
++}
++
++.section-subtitle {
++  margin: 0;
++  color: var(--text-secondary);
++}
++
++.declaracao-text {
++  margin-top: 16px;
++  white-space: pre-line;
++  line-height: 1.7;
++  max-height: 180px;
++  overflow: hidden;
++  transition: max-height 0.4s ease;
++}
++
++.declaracao-text.expanded {
++  max-height: 1000px;
++}
++
++.buttons-row {
++  display: flex;
++  flex-wrap: wrap;
++  gap: 12px;
++  margin-top: 16px;
++}
++
++.primary-button,
++.secondary-button,
++.ghost-button {
++  border: none;
++  border-radius: 999px;
++  padding: 12px 22px;
++  font-size: 0.95rem;
++  cursor: pointer;
++  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
++  font-family: inherit;
++}
++
++.primary-button {
++  background: linear-gradient(120deg, var(--accent), var(--accent-dark));
++  color: #fff;
++  box-shadow: 0 12px 24px rgba(255, 92, 138, 0.3);
++}
++
++.secondary-button {
++  background: rgba(255, 255, 255, 0.6);
++  color: var(--text-primary);
++  border: 1px solid rgba(255, 255, 255, 0.7);
++}
++
++.ghost-button {
++  background: transparent;
++  color: var(--text-primary);
++  border: 1px solid rgba(255, 255, 255, 0.5);
++}
++
++.primary-button:hover,
++.secondary-button:hover,
++.ghost-button:hover {
++  transform: translateY(-2px);
++}
++
++.music-player {
++  display: flex;
++  align-items: center;
++  gap: 12px;
++  margin-top: 16px;
++  flex-wrap: wrap;
++}
++
++.music-status {
++  color: var(--text-secondary);
++}
++
++.music-link {
++  margin-top: 16px;
++  display: flex;
++  flex-direction: column;
++  gap: 8px;
++}
++
++.music-warning {
++  color: var(--text-secondary);
++}
++
++.hidden {
++  display: none;
++}
++
++.moments-grid {
++  margin-top: 20px;
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
++  gap: 16px;
++}
++
++.moment-card {
++  background: rgba(255, 255, 255, 0.65);
++  border-radius: 18px;
++  padding: 16px;
++  min-height: 110px;
++  border: 1px solid rgba(255, 255, 255, 0.7);
++}
++
++.moment-card h4 {
++  margin: 0 0 8px;
++}
++
++.actions {
++  text-align: center;
++}
++
++.signature {
++  margin-top: 24px;
++  text-align: center;
++  font-style: italic;
++  color: var(--text-secondary);
++}
++
++.toast {
++  position: fixed;
++  bottom: 20px;
++  right: 20px;
++  background: rgba(35, 20, 45, 0.9);
++  color: #fff;
++  padding: 10px 18px;
++  border-radius: 999px;
++  opacity: 0;
++  transform: translateY(10px);
++  transition: opacity 0.3s ease, transform 0.3s ease;
++  z-index: 20;
++}
++
++.toast.show {
++  opacity: 1;
++  transform: translateY(0);
++}
++
++.floating-heart {
++  position: fixed;
++  font-size: 18px;
++  animation: floatUp 2s ease forwards;
++  pointer-events: none;
++  z-index: 15;
++}
++
++@keyframes floatUp {
++  0% {
++    transform: translateY(0) scale(0.9);
++    opacity: 0;
++  }
++  20% {
++    opacity: 1;
++  }
++  100% {
++    transform: translateY(-160px) scale(1.2);
++    opacity: 0;
++  }
++}
++
++@media (min-width: 768px) {
++  .card {
++    padding: 40px 48px 48px;
++  }
++
++  .card-header {
++    flex-direction: row;
++    justify-content: space-between;
++    align-items: center;
++  }
++
++  .cover {
++    grid-template-columns: 1.1fr 0.9fr;
++    align-items: center;
++  }
++
++  .cover-image img {
++    height: 320px;
++  }
++}
+ 
+EOF
+)
